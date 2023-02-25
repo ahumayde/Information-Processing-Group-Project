@@ -6,14 +6,14 @@
    version="1.0"
    description=""
    tags=""
-   categories="" />
+   categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
    element accelerometer
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "4";
          type = "int";
       }
    }
@@ -29,7 +29,7 @@
    {
       datum _sortIndex
       {
-         value = "0";
+         value = "1";
          type = "int";
       }
    }
@@ -43,9 +43,14 @@
    }
    element cpu
    {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
       datum _sortIndex
       {
-         value = "4";
+         value = "0";
          type = "int";
       }
    }
@@ -57,11 +62,11 @@
          type = "String";
       }
    }
-   element floating_point
+   element integrator_2_0
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "9";
          type = "int";
       }
    }
@@ -81,11 +86,19 @@
          type = "String";
       }
    }
+   element nios_custom_instr_floating_point_2_0
+   {
+      datum _sortIndex
+      {
+         value = "8";
+         type = "int";
+      }
+   }
    element pll
    {
       datum _sortIndex
       {
-         value = "2";
+         value = "3";
          type = "int";
       }
    }
@@ -101,7 +114,7 @@
    {
       datum _sortIndex
       {
-         value = "1";
+         value = "2";
          type = "int";
       }
    }
@@ -159,7 +172,7 @@
  <parameter name="hideFromIPCatalog" value="false" />
  <parameter name="lockedInterfaceDefinition" value="" />
  <parameter name="maxAdditionalLatency" value="1" />
- <parameter name="projectName" value="" />
+ <parameter name="projectName" value="integrator.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="0" />
  <parameter name="testBenchDutName" value="" />
@@ -167,22 +180,14 @@
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface
-   name="accelerometer_spi_0_external_interface"
+   name="accelerometer"
    internal="accelerometer.external_interface"
    type="conduit"
    dir="end" />
  <interface name="clk" internal="clk.clk_in" type="clock" dir="end" />
- <interface
-   name="new_sdram_controller_0_wire"
-   internal="sdram.wire"
-   type="conduit"
-   dir="end" />
+ <interface name="dram" internal="sdram.wire" type="conduit" dir="end" />
  <interface name="reset" internal="clk.clk_in_reset" type="reset" dir="end" />
- <interface
-   name="sys_sdram_pll_0_sdram_clk"
-   internal="pll.sdram_clk"
-   type="clock"
-   dir="start" />
+ <interface name="sdram_clk" internal="pll.sdram_clk" type="clock" dir="start" />
  <module
    name="accelerometer"
    kind="altera_up_avalon_accelerometer_spi"
@@ -210,7 +215,7 @@
   <parameter name="cpuArchRev" value="1" />
   <parameter name="cpuID" value="0" />
   <parameter name="cpuReset" value="false" />
-  <parameter name="customInstSlavesSystemInfo"><![CDATA[<info><slave name="nios_custom_instr_floating_point_2_0" baseAddress="224" addressSpan="16" clockCycleType="COMBINATORIAL" /><slave name="nios_custom_instr_floating_point_2_0_1" baseAddress="248" addressSpan="8" clockCycleType="VARIABLE" /></info>]]></parameter>
+  <parameter name="customInstSlavesSystemInfo"><![CDATA[<info><slave name="nios_custom_instr_floating_point_2_0" baseAddress="224" addressSpan="16" clockCycleType="COMBINATORIAL" /><slave name="nios_custom_instr_floating_point_2_0_1" baseAddress="248" addressSpan="8" clockCycleType="VARIABLE" /><slave name="integrator_2_0" baseAddress="0" addressSpan="1" clockCycleType="COMBINATORIAL" /></info>]]></parameter>
   <parameter name="customInstSlavesSystemInfo_nios_a" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_b" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_c" value="&lt;info/&gt;" />
@@ -375,19 +380,7 @@
   <parameter name="tracefilename" value="" />
   <parameter name="userDefinedSettings" value="" />
  </module>
- <module
-   name="floating_point"
-   kind="altera_nios_custom_instr_floating_point_2"
-   version="20.1"
-   enabled="1">
-  <parameter name="AUTO_DEVICE" value="10M50DAF484C7G" />
-  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="7" />
-  <parameter name="arithmetic_present" value="true" />
-  <parameter name="comparison_present" value="true" />
-  <parameter name="conversion_present" value="true" />
-  <parameter name="deviceFamily" value="MAX 10" />
-  <parameter name="root_present" value="false" />
- </module>
+ <module name="integrator_2_0" kind="integrator_2" version="2.0" enabled="1" />
  <module name="jtag" kind="altera_avalon_jtag_uart" version="20.1" enabled="1">
   <parameter name="allowMultipleConnections" value="false" />
   <parameter name="avalonSpec" value="2.0" />
@@ -402,6 +395,19 @@
   <parameter name="useRelativePathForSimFile" value="false" />
   <parameter name="writeBufferDepth" value="64" />
   <parameter name="writeIRQThreshold" value="8" />
+ </module>
+ <module
+   name="nios_custom_instr_floating_point_2_0"
+   kind="altera_nios_custom_instr_floating_point_2"
+   version="20.1"
+   enabled="1">
+  <parameter name="AUTO_DEVICE" value="10M50DAF484C7G" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="7" />
+  <parameter name="arithmetic_present" value="true" />
+  <parameter name="comparison_present" value="true" />
+  <parameter name="conversion_present" value="true" />
+  <parameter name="deviceFamily" value="MAX 10" />
+  <parameter name="root_present" value="false" />
  </module>
  <module
    name="pll"
@@ -544,6 +550,11 @@
  <connection kind="clock" version="20.1" start="pll.sys_clk" end="timer_0.clk" />
  <connection kind="clock" version="20.1" start="pll.sys_clk" end="timer_1.clk" />
  <connection
+   kind="clock"
+   version="20.1"
+   start="pll.sys_clk"
+   end="integrator_2_0.clock" />
+ <connection
    kind="interrupt"
    version="20.1"
    start="cpu.irq"
@@ -563,7 +574,16 @@
    kind="nios_custom_instruction"
    version="20.1"
    start="cpu.custom_instruction_master"
-   end="floating_point.s1">
+   end="integrator_2_0.nios_custom_instruction_slave">
+  <parameter name="CIName" value="integrator_2_0" />
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0" />
+ </connection>
+ <connection
+   kind="nios_custom_instruction"
+   version="20.1"
+   start="cpu.custom_instruction_master"
+   end="nios_custom_instr_floating_point_2_0.s1">
   <parameter name="CIName">nios_custom_instr_floating_point_2_0</parameter>
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="224" />
@@ -572,7 +592,7 @@
    kind="nios_custom_instruction"
    version="20.1"
    start="cpu.custom_instruction_master"
-   end="floating_point.s2">
+   end="nios_custom_instr_floating_point_2_0.s2">
   <parameter name="CIName">nios_custom_instr_floating_point_2_0_1</parameter>
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="248" />
@@ -588,6 +608,11 @@
  <connection kind="reset" version="20.1" start="clk.clk_reset" end="jtag.reset" />
  <connection kind="reset" version="20.1" start="clk.clk_reset" end="timer_0.reset" />
  <connection kind="reset" version="20.1" start="clk.clk_reset" end="timer_1.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk.clk_reset"
+   end="integrator_2_0.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />
