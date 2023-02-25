@@ -1,0 +1,150 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate /home/omaralkhatib/Documents/IP/Information-Processing-Group-Project/Testing-integrator/cpu.qsys --block-symbol-file --output-directory=/home/omaralkhatib/Documents/IP/Information-Processing-Group-Project/Testing-integrator/cpu --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading Testing-integrator/cpu.qsys
+Progress: Reading input file
+Progress: Adding accelerometer [altera_up_avalon_accelerometer_spi 18.0]
+Progress: Parameterizing module accelerometer
+Progress: Adding clk [clock_source 20.1]
+Progress: Parameterizing module clk
+Progress: Adding cpu [altera_nios2_gen2 20.1]
+Progress: Parameterizing module cpu
+Progress: Adding integrator_2_0 [integrator_2 2.0]
+Progress: Parameterizing module integrator_2_0
+Progress: Adding jtag [altera_avalon_jtag_uart 20.1]
+Progress: Parameterizing module jtag
+Progress: Adding nios_custom_instr_floating_point_2_0 [altera_nios_custom_instr_floating_point_2 20.1]
+Progress: Parameterizing module nios_custom_instr_floating_point_2_0
+Progress: Adding pll [altera_up_avalon_sys_sdram_pll 18.0]
+Progress: Parameterizing module pll
+Progress: Adding sdram [altera_avalon_new_sdram_controller 20.1]
+Progress: Parameterizing module sdram
+Progress: Adding timer_0 [altera_avalon_timer 20.1]
+Progress: Parameterizing module timer_0
+Progress: Adding timer_1 [altera_avalon_timer 20.1]
+Progress: Parameterizing module timer_1
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: cpu.jtag: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: cpu.pll: Refclk Freq: 50.0
+Info: cpu.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate /home/omaralkhatib/Documents/IP/Information-Processing-Group-Project/Testing-integrator/cpu.qsys --synthesis=VERILOG --output-directory=/home/omaralkhatib/Documents/IP/Information-Processing-Group-Project/Testing-integrator/cpu/synthesis --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading Testing-integrator/cpu.qsys
+Progress: Reading input file
+Progress: Adding accelerometer [altera_up_avalon_accelerometer_spi 18.0]
+Progress: Parameterizing module accelerometer
+Progress: Adding clk [clock_source 20.1]
+Progress: Parameterizing module clk
+Progress: Adding cpu [altera_nios2_gen2 20.1]
+Progress: Parameterizing module cpu
+Progress: Adding integrator_2_0 [integrator_2 2.0]
+Progress: Parameterizing module integrator_2_0
+Progress: Adding jtag [altera_avalon_jtag_uart 20.1]
+Progress: Parameterizing module jtag
+Progress: Adding nios_custom_instr_floating_point_2_0 [altera_nios_custom_instr_floating_point_2 20.1]
+Progress: Parameterizing module nios_custom_instr_floating_point_2_0
+Progress: Adding pll [altera_up_avalon_sys_sdram_pll 18.0]
+Progress: Parameterizing module pll
+Progress: Adding sdram [altera_avalon_new_sdram_controller 20.1]
+Progress: Parameterizing module sdram
+Progress: Adding timer_0 [altera_avalon_timer 20.1]
+Progress: Parameterizing module timer_0
+Progress: Adding timer_1 [altera_avalon_timer 20.1]
+Progress: Parameterizing module timer_1
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: cpu.jtag: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: cpu.pll: Refclk Freq: 50.0
+Info: cpu.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: cpu: Generating cpu "cpu" for QUARTUS_SYNTH
+Warning: cpu: "No matching role found for integrator_2_0:nios_custom_instruction_slave:clk_en (clk_en)"
+Warning: cpu: "No matching role found for integrator_2_0:nios_custom_instruction_slave:start (start)"
+Warning: cpu: "No matching role found for integrator_2_0:nios_custom_instruction_slave:done (done)"
+Warning: cpu: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_ipending (ipending)"
+Warning: cpu: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_estatus (estatus)"
+Info: accelerometer: Starting Generation of the Accelerometer Controller in SPI mode
+Info: accelerometer: "cpu" instantiated altera_up_avalon_accelerometer_spi "accelerometer"
+Info: cpu: "cpu" instantiated altera_nios2_gen2 "cpu"
+Info: integrator_2_0: "cpu" instantiated integrator_2 "integrator_2_0"
+Info: jtag: Starting RTL generation for module 'cpu_jtag'
+Info: jtag:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=cpu_jtag --dir=/tmp/alt9413_4912339196985705894.dir/0007_jtag_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9413_4912339196985705894.dir/0007_jtag_gen//cpu_jtag_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag: Done RTL generation for module 'cpu_jtag'
+Info: jtag: "cpu" instantiated altera_avalon_jtag_uart "jtag"
+Info: nios_custom_instr_floating_point_2_0: "cpu" instantiated altera_nios_custom_instr_floating_point_2 "nios_custom_instr_floating_point_2_0"
+Info: pll: "cpu" instantiated altera_up_avalon_sys_sdram_pll "pll"
+Info: sdram: Starting RTL generation for module 'cpu_sdram'
+Info: sdram:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=cpu_sdram --dir=/tmp/alt9413_4912339196985705894.dir/0008_sdram_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9413_4912339196985705894.dir/0008_sdram_gen//cpu_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'cpu_sdram'
+Info: sdram: "cpu" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: timer_0: Starting RTL generation for module 'cpu_timer_0'
+Info: timer_0:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=cpu_timer_0 --dir=/tmp/alt9413_4912339196985705894.dir/0009_timer_0_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9413_4912339196985705894.dir/0009_timer_0_gen//cpu_timer_0_component_configuration.pl  --do_build_sim=0  ]
+Info: timer_0: Done RTL generation for module 'cpu_timer_0'
+Info: timer_0: "cpu" instantiated altera_avalon_timer "timer_0"
+Info: cpu_custom_instruction_master_translator: "cpu" instantiated altera_customins_master_translator "cpu_custom_instruction_master_translator"
+Info: cpu_custom_instruction_master_comb_xconnect: "cpu" instantiated altera_customins_xconnect "cpu_custom_instruction_master_comb_xconnect"
+Info: cpu_custom_instruction_master_comb_slave_translator0: "cpu" instantiated altera_customins_slave_translator "cpu_custom_instruction_master_comb_slave_translator0"
+Info: cpu_custom_instruction_master_multi_xconnect: "cpu" instantiated altera_customins_xconnect "cpu_custom_instruction_master_multi_xconnect"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "cpu" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "cpu" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "cpu" instantiated altera_reset_controller "rst_controller"
+Info: cpu: Starting RTL generation for module 'cpu_cpu_cpu'
+Info: cpu:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=cpu_cpu_cpu --dir=/tmp/alt9413_4912339196985705894.dir/0016_cpu_gen/ --quartus_bindir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/ --verilog --config=/tmp/alt9413_4912339196985705894.dir/0016_cpu_gen//cpu_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2023.02.25 19:15:09 (*) Starting Nios II generation
+Info: cpu: # 2023.02.25 19:15:09 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2023.02.25 19:15:09 (*)   Creating all objects for CPU
+Info: cpu: # 2023.02.25 19:15:09 (*)   Generating RTL from CPU objects
+Info: cpu: # 2023.02.25 19:15:09 (*)   Creating plain-text RTL
+Info: cpu: # 2023.02.25 19:15:09 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'cpu_cpu_cpu'
+Info: cpu: "cpu" instantiated altera_nios2_gen2_unit "cpu"
+Info: fpci_combi: "nios_custom_instr_floating_point_2_0" instantiated altera_nios_custom_instr_floating_point_2_combi "fpci_combi"
+Info: fpci_multi: "nios_custom_instr_floating_point_2_0" instantiated altera_nios_custom_instr_floating_point_2_multi "fpci_multi"
+Info: sys_pll: "pll" instantiated altera_up_altpll "sys_pll"
+Info: reset_from_locked: "pll" instantiated altera_up_avalon_reset_from_locked_signal "reset_from_locked"
+Info: cpu_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "cpu_data_master_translator"
+Info: accelerometer_avalon_accelerometer_spi_mode_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "accelerometer_avalon_accelerometer_spi_mode_slave_translator"
+Info: cpu_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "cpu_data_master_agent"
+Info: accelerometer_avalon_accelerometer_spi_mode_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "accelerometer_avalon_accelerometer_spi_mode_slave_agent"
+Info: accelerometer_avalon_accelerometer_spi_mode_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "accelerometer_avalon_accelerometer_spi_mode_slave_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: router_004: "mm_interconnect_0" instantiated altera_merlin_router "router_004"
+Info: router_005: "mm_interconnect_0" instantiated altera_merlin_router "router_005"
+Info: accelerometer_avalon_accelerometer_spi_mode_slave_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "accelerometer_avalon_accelerometer_spi_mode_slave_burst_adapter"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: cmd_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_002"
+Info: Reusing file /home/omaralkhatib/Documents/IP/Information-Processing-Group-Project/Testing-integrator/cpu/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /home/omaralkhatib/Documents/IP/Information-Processing-Group-Project/Testing-integrator/cpu/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file /home/omaralkhatib/Documents/IP/Information-Processing-Group-Project/Testing-integrator/cpu/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: accelerometer_avalon_accelerometer_spi_mode_slave_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "accelerometer_avalon_accelerometer_spi_mode_slave_rsp_width_adapter"
+Info: Reusing file /home/omaralkhatib/Documents/IP/Information-Processing-Group-Project/Testing-integrator/cpu/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file /home/omaralkhatib/Documents/IP/Information-Processing-Group-Project/Testing-integrator/cpu/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_001: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_001"
+Info: avalon_st_adapter_003: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_003"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_001" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_003" instantiated error_adapter "error_adapter_0"
+Info: cpu: Done "cpu" with 47 modules, 89 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
