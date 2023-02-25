@@ -62,30 +62,11 @@ module integrator_Top(
 	inout 		    [35:0]		GPIO
 );
 
-wire reset_reset_n;
+
 
 //=======================================================
 //  REG/WIRE declarations
 //=======================================================
-	cpu u0 (
-		.accelerometer_I2C_SDAT      (GSENSOR_SDI),      // accelerometer.I2C_SDAT
-		.accelerometer_I2C_SCLK      (GSENSOR_SCLK),      //              .I2C_SCLK
-		.accelerometer_G_SENSOR_CS_N (GSENSOR_CS_N), //              .G_SENSOR_CS_N
-		.accelerometer_G_SENSOR_INT  (G_SENSOR_INT),  //              .G_SENSOR_INT
-		.clk_clk                     (MAX10_CLK1_50),                     //           clk.clk
-		.dram_addr                   (DRAM_ADDR),                   //          dram.addr
-		.dram_ba                     (DRAM_BA),                     //              .ba
-		.dram_cas_n                  (DRAM_CAS_N),                  //              .cas_n
-		.dram_cke                    (DRAM_CKE),                    //              .cke
-		.dram_cs_n                   (DRAM_CS_N),                   //              .cs_n
-		.dram_dq                     (DRAM_DQ),                     //              .dq
-		.dram_dqm                    ({DRAM_UDQM, DRAM_LDQM}),                    //              .dqm
-		.dram_ras_n                  (DRAM_RAS_N),                  //              .ras_n
-		.dram_we_n                   (DRAM_WE_N),                   //              .we_n
-		.reset_reset_n               (1'b1),               //         reset.reset_n
-		.sdram_clk_clk               (DRAM_CLK),               //     sdram_clk.clk
-	);
-
 
 
 
@@ -93,7 +74,6 @@ wire reset_reset_n;
 //=======================================================
 //  Structural coding
 //=======================================================
-
 
 
 
