@@ -1,8 +1,18 @@
 import pygame
 from sys import exit
-import time
+from flask import Flask
 
 
+#
+# app = Flask(__name__)
+#
+# @app.route('/')
+# def hello_wolrd():
+#     return '<p>Hello World!</p>'
+#
+# @app.route('/ahmad')
+# def ahmad():
+#     return '<p>Ahmads a bitch</p>'
 
 pygame.init()
 screen = pygame.display.set_mode((400, 640))
@@ -26,6 +36,10 @@ up = False
 down = False
 left = False
 right = False
+
+
+app.run()
+
 while True:
     screen.fill((0, 0, 0))
     for event in pygame.event.get():
@@ -87,3 +101,5 @@ while True:
     pygame.display.update()
 
     clock.tick(60)
+
+
