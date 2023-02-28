@@ -3,18 +3,19 @@ from sys import exit
 from flask import Flask,render_template
 import threading
 
-app = Flask(__name__)
+def server():
+    app = Flask(__name__)
 
 
-@app.route('/')
-def index():
+    @app.route('/')
+    def index():
 
-    return render_template('index.html')
+        return render_template('index.html')
 
-@app.route('/ahmad')
-def ahmad():
-    return '<p>Ahmads a bitch</p>'
-
+    @app.route('/ahmad')
+    def ahmad():
+        return '<p>Ahmads a bitch</p>'
+    app.run()
 
 
 
@@ -106,10 +107,9 @@ def game_loop():
 
 if __name__ == '__main__':
     # Start the game loop in a separate thread
-    game_thread = threading.Thread(target=game_loop)
-    app_thread = threading.Thread(target=app.run)
-    app_thread.start()
-    game_thread.start()
+    game_thread = threading.Thread(target=game_loop).start()
+    app_thread = threading.Thread(target=server).start()
+
 
     # Start the Flask app
 
