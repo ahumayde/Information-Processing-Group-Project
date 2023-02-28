@@ -7,7 +7,7 @@ WiFiClient client;
 
 const char *ssid = WIFI_SSID;
 const char *password = WIFI_PASSWORD;
-const char *host = "192.168.67.152";
+const char *host = "172.20.10.7";
 const int port = 10000;
 
 void connectToNetwork() {
