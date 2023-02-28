@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script  src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"> </script>
 	<title>Arrow Buttons</title>
 	<style>
 		.arrow {
@@ -19,26 +20,33 @@
 	</style>
 </head>
 <body>
-	<button>
+	<div>
 		<button class="arrow" id="left">&#8592;</button>
-		<button class="arrow" id="up" >&#8593;</button>
+		<button class="arrow" id="up">&#8593;</button>
 		<button class="arrow" id="right" >&#8594;</button>
 		<button class="arrow" id="down" >&#8595;</button>
-	</button>
+	</div>
+	<script> 
+
+		let config = {
+			method:'post',
+			data: {
+				message: 'left'
+		}
+		}
+		console.log(`config ${config.data}`)
+	
+
+		console.log(document.getElementById("up"));
+		document.getElementById("up").addEventListener("click", console.log("shit"));
+	
+		document.getElementById("left").addEventListener("click", (async (config) => {
+		
+			console.log("clicked");
+			await axios("http://127.0.0.1:5000", config);
+		
+		}))
+	
+	</script>
 </body>
 </html>
-
-<script>
-
-  document.getElementById("left").addEventListener("click", function() {
-    const xhr = new XMLHttpRequest();
-    xhr.addEventListener("clicked", function() {
-
-    });
-    xhr.open("POST", "http://127.0.0.1:5000");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    const data = {word: "left"};
-    xhr.send(JSON.stringify(data));
-  });
-</script>
-
