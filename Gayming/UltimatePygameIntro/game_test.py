@@ -1,22 +1,5 @@
 import pygame
 from sys import exit
-from flask import Flask,render_template
-import threading
-
-def server():
-    app = Flask(__name__)
-
-
-    @app.route('/')
-    def index():
-
-        return render_template('index.html')
-
-    @app.route('/ahmad')
-    def ahmad():
-        return '<p>Ahmads a bitch</p>'
-    app.run()
-
 
 
 def game_loop():
@@ -104,13 +87,4 @@ def game_loop():
         pygame.display.update()
 
         clock.tick(60)
-
-if __name__ == '__main__':
-    # Start the game loop in a separate thread
-    game_thread = threading.Thread(target=game_loop).start()
-    app_thread = threading.Thread(target=server).start()
-
-
-    # Start the Flask app
-
-
+game_loop()
