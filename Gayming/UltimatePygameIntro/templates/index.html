@@ -19,11 +19,26 @@
 	</style>
 </head>
 <body>
-	<div>
-		<div class="arrow">&#8592;</div>
-		<div class="arrow">&#8593;</div>
-		<div class="arrow">&#8594;</div>
-		<div class="arrow">&#8595;</div>
-	</div>
+	<button>
+		<button class="arrow" id="left">&#8592;</button>
+		<button class="arrow" id="up" >&#8593;</button>
+		<button class="arrow" id="right" >&#8594;</button>
+		<button class="arrow" id="down" >&#8595;</button>
+	</button>
 </body>
 </html>
+
+<script>
+
+  document.getElementById("left").addEventListener("click", function() {
+    const xhr = new XMLHttpRequest();
+    xhr.addEventListener("clicked", function() {
+
+    });
+    xhr.open("POST", "http://127.0.0.1:5000");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    const data = {word: "left"};
+    xhr.send(JSON.stringify(data));
+  });
+</script>
+
