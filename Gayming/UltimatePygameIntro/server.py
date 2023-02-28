@@ -11,4 +11,7 @@ def ahmad():
     return '<p>Ahmads a bitch</p>'
 
 
+@app.('/')
+
+
 app.run()

@@ -26,64 +26,18 @@
 		<button class="arrow" id="right" >&#8594;</button>
 		<button class="arrow" id="down" >&#8595;</button>
 	</div>
-	<script> 
-
-		let left = {
-			method:'post',
+	<script>
+		let config = {
+			method: 'post',
 			data: {
 				message: 'left'
+			}
 		}
-		}
-		let right = {
-			method:'post',
-			data: {
-				message: 'right'
-		}
-		}
-		let up = {
-			method:'post',
-			data: {
-				message: 'up'
-		}
-		}
-		let down = {
-			method:'post',
-			data: {
-				message: 'down'
-		}
-		}
-
 	
-
-		console.log(document.getElementById("up"));
-
-		document.getElementById("left").addEventListener("click", (async (left) => {
-		
-			console.log("clicked Left");
-			await axios("http://127.0.0.1:5000", left);
-		
-		}))
-		document.getElementById("right").addEventListener("click", (async (right) => {
-
-			console.log("clicked right");
-			await axios("http://127.0.0.1:5000", right);
-
-		}))
-
-		document.getElementById("up").addEventListener("click", (async (up) => {
-
-			console.log("clicked up");
-			await axios("http://127.0.0.1:5000", up);
-
-		}))
-
-		document.getElementById("down").addEventListener("click", (async (down) => {
-
-			console.log("clicked down" );
-			await axios("http://127.0.0.1:5000", down);
-
-		}))
-
+		document.getElementById("left").addEventListener("click", async () => {
+			console.log("clicked");
+			await axios("http://127.0.0.1:5000", config);
+		})
 	</script>
 </body>
 </html>
