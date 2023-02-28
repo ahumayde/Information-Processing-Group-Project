@@ -28,7 +28,7 @@
 	</div>
 	<script>
 		let config = {
-			method: 'post',
+			method: 'get',
 			data: {
 				message: 'left'
 			}
@@ -36,7 +36,7 @@
 	
 		document.getElementById("left").addEventListener("click", async () => {
 			console.log("clicked");
-			await axios("http://127.0.0.1:5000", config);//
+			await axios("http://127.0.0.1:5000/left", config);//
 		})
 	</script>
 </body>
