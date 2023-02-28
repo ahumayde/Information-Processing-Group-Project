@@ -28,25 +28,62 @@
 	</div>
 	<script> 
 
-		let config = {
+		let left = {
 			method:'post',
 			data: {
 				message: 'left'
 		}
 		}
-		console.log(`config ${config.data}`)
+		let right = {
+			method:'post',
+			data: {
+				message: 'right'
+		}
+		}
+		let up = {
+			method:'post',
+			data: {
+				message: 'up'
+		}
+		}
+		let down = {
+			method:'post',
+			data: {
+				message: 'down'
+		}
+		}
+
 	
 
 		console.log(document.getElementById("up"));
-		document.getElementById("up").addEventListener("click", console.log("shit"));
-	
-		document.getElementById("left").addEventListener("click", (async (config) => {
+
+		document.getElementById("left").addEventListener("click", (async (left) => {
 		
-			console.log("clicked");
-			await axios("http://127.0.0.1:5000", config);
+			console.log("clicked Left");
+			await axios("http://127.0.0.1:5000", left);
 		
 		}))
-	
+		document.getElementById("right").addEventListener("click", (async (right) => {
+
+			console.log("clicked right");
+			await axios("http://127.0.0.1:5000", right);
+
+		}))
+
+		document.getElementById("up").addEventListener("click", (async (up) => {
+
+			console.log("clicked up");
+			await axios("http://127.0.0.1:5000", up);
+
+		}))
+
+		document.getElementById("down").addEventListener("click", (async (down) => {
+
+			console.log("clicked down" );
+			await axios("http://127.0.0.1:5000", down);
+
+		}))
+
 	</script>
 </body>
 </html>
