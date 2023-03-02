@@ -6,8 +6,7 @@ from sys import exit
 def game_loop():
     pygame.init()
     pygame.mixer.init()
-    sound = pygame.mixer.Sound('X__X.wav')
-    sound.play()
+    pygame.mixer.Sound('X__X.wav').play()
     screen = pygame.display.set_mode((400, 640))
     lineY = pygame.Surface((2, 640))
     lineX = pygame.Surface((400, 2))
