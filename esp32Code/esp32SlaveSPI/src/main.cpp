@@ -56,6 +56,7 @@ void loop()
 
     // std::cout <<  " buff[0]: "<< (int)spi_slave_rx_buf[0] <<  " buff[1]: "<< (int)spi_slave_rx_buf[1] << " buff[2]: "<< (int)spi_slave_rx_buf[2] << std::endl;
     // std::cout << "y: "<< y << std::endl;
+    std::cout << "x: " << x << " y: " << y << " buttons: " << buttons << std::endl;
     slave.pop();
   }
 
