@@ -20,7 +20,7 @@ void connectToNetwork() {
 }
 
 void sendMessageToTCPServer() {
-  client.print("5");
+  client.print("10,20,30");
   Serial.println("Sent TCP message to server");
 }
 
