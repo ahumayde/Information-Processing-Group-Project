@@ -1,4 +1,6 @@
-#define WIFI_SSID_ "Bruh"
 #define WIFI_SSID "ESP32"
-#define WIFI_PASSWORD_ "qurs1567"
+#define WIFI_SSID_Omar "Bruh"
+#define WIFI_SSID_Yazan "iPhone (85)"
 #define WIFI_PASSWORD "password"
+#define WIFI_PASSWORD_Omar "qurs1567"
+#define WIFI_PASSWORD_Yazan "Yazan2003"

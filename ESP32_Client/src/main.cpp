@@ -19,8 +19,32 @@ void connectToNetwork() {
   Serial.println("Connected to network");
 }
 
-void sendMessageToTCPServer() {
-  client.print("10,20,30");
+void sendMessageToTCPServer(String input) {
+
+  // std::string x = std::to_string(random(-255,255));
+  // std::string y = std::to_string(random(-255,255));
+  // std::string z = std::to_string(random(-255,255));
+
+  // String x = String(random(-255,255));
+  // String y = String(random(-255,255));
+  // String b = String(random(0,4));
+  // String msg = ","+x+","+y+","+b;
+
+  String msg;
+  if (input == "right") {
+    msg = ",0,0,1";
+  } else if (input == "left") {
+    msg = ",0,0,2";
+  } else if (input == "drop") {
+    msg = ",0,255,0";
+  } else if (input == "store") {
+    msg = ",0,-255,0";
+  } else {
+    msg = ",0,0,0";
+  }
+  Serial.print("msg: ");
+  Serial.println(msg);
+  client.print(msg);
   Serial.println("Sent TCP message to server");
 }
 
@@ -37,6 +61,7 @@ void setup() {
 }
 
 void loop() {
-  sendMessageToTCPServer();
+  String input = "drop";
+  sendMessageToTCPServer(input);
   delay(1000);
 }
