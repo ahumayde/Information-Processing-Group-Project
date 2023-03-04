@@ -51,6 +51,6 @@ def game_loop():
             screen.blit(lineX, (0, i))
         pygame.display.update()
 
-        clock.tick(60)
-
+        clock.tick(80)
+                   
 game_loop()

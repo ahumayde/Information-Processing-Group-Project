@@ -1,6 +1,6 @@
 import requests as rq
 import time
-jsurl="http://127.0.0.1:8080"
+jsurl="http://172.20.10.11:8080"
 while True:
     x = rq.get(jsurl)
     print(x.text)
