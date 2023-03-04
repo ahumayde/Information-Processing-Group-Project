@@ -96,7 +96,8 @@ esp32SPIHardware u0 (
 	.esp32_spi_SS_n                  (ARDUINO_IO[10]),                  //                  .SS_n
 	.sdram_clk_clk                   (DRAM_CLK),                   //         sdram_clk.clk
 	.clk_clk                         (MAX10_CLK1_50),                         //               clk.clk
-	.reset_reset_n                   (1'b1)                    //             reset.reset_n
+	.reset_reset_n                   (1'b1),                    //             reset.reset_n
+	.button_export                   (KEY)                    //            button.export
 );
 
 

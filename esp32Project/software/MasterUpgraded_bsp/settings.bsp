@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>04-Mar-2023 15:13:18</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1677942798701</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>04-Mar-2023 17:15:13</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1677950113057</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/omaralkhatib/Documents/IP/Information-Processing-Group-Project/esp32Project/software/MasterUpgraded_bsp</BspGeneratedLocation>
         <BspSettingsFile>./settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../esp32SPIHardware.sopcinfo</SopcDesignFile>
@@ -898,6 +898,12 @@
                 <Enabled>false</Enabled>
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
+        <MemoryMap>
+                <slaveDescriptor>pio_0</slaveDescriptor>
+                <addressRange>0x00000000 - 0x0000000F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>dram_controller</slaveDescriptor>
                 <addressRange>0x04000000 - 0x07FFFFFF</addressRange>

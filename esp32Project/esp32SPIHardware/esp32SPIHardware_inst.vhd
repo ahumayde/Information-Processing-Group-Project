@@ -19,7 +19,8 @@
 			esp32_spi_SCLK                  : out   std_logic;                                        -- SCLK
 			esp32_spi_SS_n                  : out   std_logic;                                        -- SS_n
 			reset_reset_n                   : in    std_logic                     := 'X';             -- reset_n
-			sdram_clk_clk                   : out   std_logic                                         -- clk
+			sdram_clk_clk                   : out   std_logic;                                        -- clk
+			button_export                   : in    std_logic_vector(1 downto 0)  := (others => 'X')  -- export
 		);
 	end component esp32SPIHardware;
 
@@ -44,6 +45,7 @@
 			esp32_spi_SCLK                  => CONNECTED_TO_esp32_spi_SCLK,                  --                  .SCLK
 			esp32_spi_SS_n                  => CONNECTED_TO_esp32_spi_SS_n,                  --                  .SS_n
 			reset_reset_n                   => CONNECTED_TO_reset_reset_n,                   --             reset.reset_n
-			sdram_clk_clk                   => CONNECTED_TO_sdram_clk_clk                    --         sdram_clk.clk
+			sdram_clk_clk                   => CONNECTED_TO_sdram_clk_clk,                   --         sdram_clk.clk
+			button_export                   => CONNECTED_TO_button_export                    --            button.export
 		);
 

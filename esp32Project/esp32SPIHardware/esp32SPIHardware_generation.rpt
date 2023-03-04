@@ -18,6 +18,8 @@ Progress: Adding jtag [altera_avalon_jtag_uart 20.1]
 Progress: Parameterizing module jtag
 Progress: Adding nios2_cpu [altera_nios2_gen2 20.1]
 Progress: Parameterizing module nios2_cpu
+Progress: Adding pio_0 [altera_avalon_pio 20.1]
+Progress: Parameterizing module pio_0
 Progress: Adding sys_clk [altera_avalon_timer 20.1]
 Progress: Parameterizing module sys_clk
 Progress: Adding timer_1 [altera_avalon_timer 20.1]
@@ -31,6 +33,7 @@ Progress: Done reading input file
 Info: esp32SPIHardware.dram_clks_pll: Refclk Freq: 50.0
 Info: esp32SPIHardware.dram_controller: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
 Info: esp32SPIHardware.jtag: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: esp32SPIHardware.pio_0: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
 Info: qsys-generate succeeded.
 Info: Finished: Create block symbol file (.bsf)
 Info: 
@@ -54,6 +57,8 @@ Progress: Adding jtag [altera_avalon_jtag_uart 20.1]
 Progress: Parameterizing module jtag
 Progress: Adding nios2_cpu [altera_nios2_gen2 20.1]
 Progress: Parameterizing module nios2_cpu
+Progress: Adding pio_0 [altera_avalon_pio 20.1]
+Progress: Parameterizing module pio_0
 Progress: Adding sys_clk [altera_avalon_timer 20.1]
 Progress: Parameterizing module sys_clk
 Progress: Adding timer_1 [altera_avalon_timer 20.1]
@@ -67,6 +72,7 @@ Progress: Done reading input file
 Info: esp32SPIHardware.dram_clks_pll: Refclk Freq: 50.0
 Info: esp32SPIHardware.dram_controller: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
 Info: esp32SPIHardware.jtag: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: esp32SPIHardware.pio_0: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
 Info: esp32SPIHardware: Generating esp32SPIHardware "esp32SPIHardware" for QUARTUS_SYNTH
 Warning: esp32SPIHardware: "No matching role found for nios2_cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_ipending (ipending)"
 Warning: esp32SPIHardware: "No matching role found for nios2_cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_estatus (estatus)"
@@ -74,21 +80,25 @@ Info: accelerometer: Starting Generation of the Accelerometer Controller in SPI 
 Info: accelerometer: "esp32SPIHardware" instantiated altera_up_avalon_accelerometer_spi "accelerometer"
 Info: dram_clks_pll: "esp32SPIHardware" instantiated altera_up_avalon_sys_sdram_pll "dram_clks_pll"
 Info: dram_controller: Starting RTL generation for module 'esp32SPIHardware_dram_controller'
-Info: dram_controller:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=esp32SPIHardware_dram_controller --dir=/tmp/alt9420_6432181687194023179.dir/0003_dram_controller_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9420_6432181687194023179.dir/0003_dram_controller_gen//esp32SPIHardware_dram_controller_component_configuration.pl  --do_build_sim=0  ]
+Info: dram_controller:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=esp32SPIHardware_dram_controller --dir=/tmp/alt9420_7832460555802410229.dir/0003_dram_controller_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9420_7832460555802410229.dir/0003_dram_controller_gen//esp32SPIHardware_dram_controller_component_configuration.pl  --do_build_sim=0  ]
 Info: dram_controller: Done RTL generation for module 'esp32SPIHardware_dram_controller'
 Info: dram_controller: "esp32SPIHardware" instantiated altera_avalon_new_sdram_controller "dram_controller"
 Info: esp32_spi: Starting RTL generation for module 'esp32SPIHardware_esp32_spi'
-Info: esp32_spi:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_spi -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_spi/generate_rtl.pl --name=esp32SPIHardware_esp32_spi --dir=/tmp/alt9420_6432181687194023179.dir/0004_esp32_spi_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9420_6432181687194023179.dir/0004_esp32_spi_gen//esp32SPIHardware_esp32_spi_component_configuration.pl  --do_build_sim=0  ]
+Info: esp32_spi:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_spi -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_spi/generate_rtl.pl --name=esp32SPIHardware_esp32_spi --dir=/tmp/alt9420_7832460555802410229.dir/0004_esp32_spi_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9420_7832460555802410229.dir/0004_esp32_spi_gen//esp32SPIHardware_esp32_spi_component_configuration.pl  --do_build_sim=0  ]
 Info: esp32_spi: Done RTL generation for module 'esp32SPIHardware_esp32_spi'
 Info: esp32_spi: "esp32SPIHardware" instantiated altera_avalon_spi "esp32_spi"
 Info: fph2: "esp32SPIHardware" instantiated altera_nios_custom_instr_floating_point_2 "fph2"
 Info: jtag: Starting RTL generation for module 'esp32SPIHardware_jtag'
-Info: jtag:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=esp32SPIHardware_jtag --dir=/tmp/alt9420_6432181687194023179.dir/0005_jtag_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9420_6432181687194023179.dir/0005_jtag_gen//esp32SPIHardware_jtag_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=esp32SPIHardware_jtag --dir=/tmp/alt9420_7832460555802410229.dir/0005_jtag_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9420_7832460555802410229.dir/0005_jtag_gen//esp32SPIHardware_jtag_component_configuration.pl  --do_build_sim=0  ]
 Info: jtag: Done RTL generation for module 'esp32SPIHardware_jtag'
 Info: jtag: "esp32SPIHardware" instantiated altera_avalon_jtag_uart "jtag"
 Info: nios2_cpu: "esp32SPIHardware" instantiated altera_nios2_gen2 "nios2_cpu"
+Info: pio_0: Starting RTL generation for module 'esp32SPIHardware_pio_0'
+Info: pio_0:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=esp32SPIHardware_pio_0 --dir=/tmp/alt9420_7832460555802410229.dir/0006_pio_0_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9420_7832460555802410229.dir/0006_pio_0_gen//esp32SPIHardware_pio_0_component_configuration.pl  --do_build_sim=0  ]
+Info: pio_0: Done RTL generation for module 'esp32SPIHardware_pio_0'
+Info: pio_0: "esp32SPIHardware" instantiated altera_avalon_pio "pio_0"
 Info: sys_clk: Starting RTL generation for module 'esp32SPIHardware_sys_clk'
-Info: sys_clk:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=esp32SPIHardware_sys_clk --dir=/tmp/alt9420_6432181687194023179.dir/0006_sys_clk_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9420_6432181687194023179.dir/0006_sys_clk_gen//esp32SPIHardware_sys_clk_component_configuration.pl  --do_build_sim=0  ]
+Info: sys_clk:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=esp32SPIHardware_sys_clk --dir=/tmp/alt9420_7832460555802410229.dir/0007_sys_clk_gen/ --quartus_dir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus --verilog --config=/tmp/alt9420_7832460555802410229.dir/0007_sys_clk_gen//esp32SPIHardware_sys_clk_component_configuration.pl  --do_build_sim=0  ]
 Info: sys_clk: Done RTL generation for module 'esp32SPIHardware_sys_clk'
 Info: sys_clk: "esp32SPIHardware" instantiated altera_avalon_timer "sys_clk"
 Info: nios2_cpu_custom_instruction_master_translator: "esp32SPIHardware" instantiated altera_customins_master_translator "nios2_cpu_custom_instruction_master_translator"
@@ -103,6 +113,7 @@ Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
 Info: mm_interconnect_0: "esp32SPIHardware" instantiated altera_mm_interconnect "mm_interconnect_0"
 Info: irq_mapper: "esp32SPIHardware" instantiated altera_irq_mapper "irq_mapper"
 Info: rst_controller: "esp32SPIHardware" instantiated altera_reset_controller "rst_controller"
@@ -111,21 +122,21 @@ Info: reset_from_locked: "dram_clks_pll" instantiated altera_up_avalon_reset_fro
 Info: fpci_combi: "fph2" instantiated altera_nios_custom_instr_floating_point_2_combi "fpci_combi"
 Info: fpci_multi: "fph2" instantiated altera_nios_custom_instr_floating_point_2_multi "fpci_multi"
 Info: cpu: Starting RTL generation for module 'esp32SPIHardware_nios2_cpu_cpu'
-Info: cpu:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=esp32SPIHardware_nios2_cpu_cpu --dir=/tmp/alt9420_6432181687194023179.dir/0017_cpu_gen/ --quartus_bindir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/ --verilog --config=/tmp/alt9420_6432181687194023179.dir/0017_cpu_gen//esp32SPIHardware_nios2_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
-Info: cpu: # 2023.03.04 15:11:35 (*) Starting Nios II generation
-Info: cpu: # 2023.03.04 15:11:35 (*)   Elaborating CPU configuration settings
-Info: cpu: # 2023.03.04 15:11:35 (*)   Creating all objects for CPU
-Info: cpu: # 2023.03.04 15:11:35 (*)     Testbench
-Info: cpu: # 2023.03.04 15:11:35 (*)     Instruction decoding
-Info: cpu: # 2023.03.04 15:11:35 (*)       Instruction fields
-Info: cpu: # 2023.03.04 15:11:35 (*)       Instruction decodes
-Info: cpu: # 2023.03.04 15:11:36 (*)       Signals for RTL simulation waveforms
-Info: cpu: # 2023.03.04 15:11:36 (*)       Instruction controls
-Info: cpu: # 2023.03.04 15:11:36 (*)     Pipeline frontend
-Info: cpu: # 2023.03.04 15:11:36 (*)     Pipeline backend
-Info: cpu: # 2023.03.04 15:11:37 (*)   Generating RTL from CPU objects
-Info: cpu: # 2023.03.04 15:11:37 (*)   Creating plain-text RTL
-Info: cpu: # 2023.03.04 15:11:37 (*) Done Nios II generation
+Info: cpu:   Generation command is [exec /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/bin/perl -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64//perl/lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin/europa -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/sopc_builder/bin -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /home/omaralkhatib/intelFPGA_lite/20.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=esp32SPIHardware_nios2_cpu_cpu --dir=/tmp/alt9420_7832460555802410229.dir/0018_cpu_gen/ --quartus_bindir=/home/omaralkhatib/intelFPGA_lite/20.1/quartus/linux64/ --verilog --config=/tmp/alt9420_7832460555802410229.dir/0018_cpu_gen//esp32SPIHardware_nios2_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2023.03.04 17:11:43 (*) Starting Nios II generation
+Info: cpu: # 2023.03.04 17:11:43 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2023.03.04 17:11:43 (*)   Creating all objects for CPU
+Info: cpu: # 2023.03.04 17:11:43 (*)     Testbench
+Info: cpu: # 2023.03.04 17:11:44 (*)     Instruction decoding
+Info: cpu: # 2023.03.04 17:11:44 (*)       Instruction fields
+Info: cpu: # 2023.03.04 17:11:44 (*)       Instruction decodes
+Info: cpu: # 2023.03.04 17:11:44 (*)       Signals for RTL simulation waveforms
+Info: cpu: # 2023.03.04 17:11:44 (*)       Instruction controls
+Info: cpu: # 2023.03.04 17:11:44 (*)     Pipeline frontend
+Info: cpu: # 2023.03.04 17:11:44 (*)     Pipeline backend
+Info: cpu: # 2023.03.04 17:11:45 (*)   Generating RTL from CPU objects
+Info: cpu: # 2023.03.04 17:11:45 (*)   Creating plain-text RTL
+Info: cpu: # 2023.03.04 17:11:45 (*) Done Nios II generation
 Info: cpu: Done RTL generation for module 'esp32SPIHardware_nios2_cpu_cpu'
 Info: cpu: "nios2_cpu" instantiated altera_nios2_gen2_unit "cpu"
 Info: nios2_cpu_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "nios2_cpu_data_master_translator"
@@ -163,6 +174,6 @@ Info: avalon_st_adapter_003: "mm_interconnect_0" instantiated altera_avalon_st_a
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
 Info: error_adapter_0: "avalon_st_adapter_001" instantiated error_adapter "error_adapter_0"
 Info: error_adapter_0: "avalon_st_adapter_003" instantiated error_adapter "error_adapter_0"
-Info: esp32SPIHardware: Done "esp32SPIHardware" with 49 modules, 98 files
+Info: esp32SPIHardware: Done "esp32SPIHardware" with 50 modules, 99 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

@@ -145,6 +145,14 @@
          type = "int";
       }
    }
+   element pio_0
+   {
+      datum _sortIndex
+      {
+         value = "11";
+         type = "int";
+      }
+   }
    element sys_clk
    {
       datum _sortIndex
@@ -217,6 +225,11 @@
  <interface
    name="accelerometer_spi"
    internal="accelerometer.external_interface"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="button"
+   internal="pio_0.external_connection"
    type="conduit"
    dir="end" />
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -355,7 +368,7 @@
   <parameter name="dataAddrWidth" value="28" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='dram_controller.s1' start='0x4000000' end='0x8000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='nios2_cpu.debug_mem_slave' start='0x8000800' end='0x8001000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='esp32_spi.spi_control_port' start='0x8001000' end='0x8001020' type='altera_avalon_spi.spi_control_port' /><slave name='timer_2.s1' start='0x8001020' end='0x8001040' type='altera_avalon_timer.s1' /><slave name='timer_1.s1' start='0x8001040' end='0x8001060' type='altera_avalon_timer.s1' /><slave name='sys_clk.s1' start='0x8001060' end='0x8001080' type='altera_avalon_timer.s1' /><slave name='jtag.avalon_jtag_slave' start='0x8001080' end='0x8001088' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='accelerometer.avalon_accelerometer_spi_mode_slave' start='0x8001088' end='0x800108A' type='altera_up_avalon_accelerometer_spi.avalon_accelerometer_spi_mode_slave' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='pio_0.s1' start='0x0' end='0x10' type='altera_avalon_pio.s1' /><slave name='dram_controller.s1' start='0x4000000' end='0x8000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='nios2_cpu.debug_mem_slave' start='0x8000800' end='0x8001000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='esp32_spi.spi_control_port' start='0x8001000' end='0x8001020' type='altera_avalon_spi.spi_control_port' /><slave name='timer_2.s1' start='0x8001020' end='0x8001040' type='altera_avalon_timer.s1' /><slave name='timer_1.s1' start='0x8001040' end='0x8001060' type='altera_avalon_timer.s1' /><slave name='sys_clk.s1' start='0x8001060' end='0x8001080' type='altera_avalon_timer.s1' /><slave name='jtag.avalon_jtag_slave' start='0x8001080' end='0x8001088' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='accelerometer.avalon_accelerometer_spi_mode_slave' start='0x8001088' end='0x800108A' type='altera_up_avalon_accelerometer_spi.avalon_accelerometer_spi_mode_slave' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -513,6 +526,20 @@
   <parameter name="tracefilename" value="" />
   <parameter name="userDefinedSettings" value="" />
  </module>
+ <module name="pio_0" kind="altera_avalon_pio" version="20.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="100000000" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="2" />
+ </module>
  <module name="sys_clk" kind="altera_avalon_timer" version="20.1" enabled="1">
   <parameter name="alwaysRun" value="false" />
   <parameter name="counterSize" value="32" />
@@ -616,6 +643,15 @@
    kind="avalon"
    version="20.1"
    start="nios2_cpu.data_master"
+   end="pio_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="20.1"
+   start="nios2_cpu.data_master"
    end="esp32_spi.spi_control_port">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x08001000" />
@@ -684,6 +720,11 @@
    version="20.1"
    start="dram_clks_pll.sys_clk"
    end="nios2_cpu.clk" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="dram_clks_pll.sys_clk"
+   end="pio_0.clk" />
  <connection
    kind="interrupt"
    version="20.1"
@@ -785,6 +826,11 @@
    version="20.1"
    start="dram_clks_pll.reset_source"
    end="timer_2.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="dram_clks_pll.reset_source"
+   end="pio_0.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

@@ -1,14 +1,14 @@
-Fitter Status : Successful - Sat Mar  4 15:12:48 2023
+Fitter Status : Successful - Sat Mar  4 17:14:18 2023
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : nios2Esp32Hardware
 Top-level Entity Name : esp32NiosHardwareTop
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 7,477 / 49,760 ( 15 % )
-    Total combinational functions : 6,626 / 49,760 ( 13 % )
-    Dedicated logic registers : 4,104 / 49,760 ( 8 % )
-Total registers : 4173
+Total logic elements : 7,532 / 49,760 ( 15 % )
+    Total combinational functions : 6,686 / 49,760 ( 13 % )
+    Dedicated logic registers : 4,116 / 49,760 ( 8 % )
+Total registers : 4185
 Total pins : 185 / 360 ( 51 % )
 Total virtual pins : 0
 Total memory bits : 47,616 / 1,677,312 ( 3 % )

@@ -8,6 +8,7 @@ module esp32SPIHardware (
 		output wire        accelerometer_spi_I2C_SCLK,      //                  .I2C_SCLK
 		output wire        accelerometer_spi_G_SENSOR_CS_N, //                  .G_SENSOR_CS_N
 		input  wire        accelerometer_spi_G_SENSOR_INT,  //                  .G_SENSOR_INT
+		input  wire [1:0]  button_export,                   //            button.export
 		input  wire        clk_clk,                         //               clk.clk
 		output wire [12:0] dram_addr,                       //              dram.addr
 		output wire [1:0]  dram_ba,                         //                  .ba
@@ -26,7 +27,7 @@ module esp32SPIHardware (
 		output wire        sdram_clk_clk                    //         sdram_clk.clk
 	);
 
-	wire         dram_clks_pll_sys_clk_clk;                                                       // dram_clks_pll:sys_clk_clk -> [accelerometer:clk, dram_controller:clk, esp32_spi:clk, irq_mapper:clk, jtag:clk, mm_interconnect_0:dram_clks_pll_sys_clk_clk, nios2_cpu:clk, rst_controller:clk, sys_clk:clk, timer_1:clk, timer_2:clk]
+	wire         dram_clks_pll_sys_clk_clk;                                                       // dram_clks_pll:sys_clk_clk -> [accelerometer:clk, dram_controller:clk, esp32_spi:clk, irq_mapper:clk, jtag:clk, mm_interconnect_0:dram_clks_pll_sys_clk_clk, nios2_cpu:clk, pio_0:clk, rst_controller:clk, sys_clk:clk, timer_1:clk, timer_2:clk]
 	wire         nios2_cpu_custom_instruction_master_readra;                                      // nios2_cpu:E_ci_combo_readra -> nios2_cpu_custom_instruction_master_translator:ci_slave_readra
 	wire         nios2_cpu_custom_instruction_master_readrb;                                      // nios2_cpu:E_ci_combo_readrb -> nios2_cpu_custom_instruction_master_translator:ci_slave_readrb
 	wire   [4:0] nios2_cpu_custom_instruction_master_multi_b;                                     // nios2_cpu:A_ci_multi_b -> nios2_cpu_custom_instruction_master_translator:ci_slave_multi_b
@@ -187,6 +188,8 @@ module esp32SPIHardware (
 	wire   [2:0] mm_interconnect_0_timer_2_s1_address;                                            // mm_interconnect_0:timer_2_s1_address -> timer_2:address
 	wire         mm_interconnect_0_timer_2_s1_write;                                              // mm_interconnect_0:timer_2_s1_write -> timer_2:write_n
 	wire  [15:0] mm_interconnect_0_timer_2_s1_writedata;                                          // mm_interconnect_0:timer_2_s1_writedata -> timer_2:writedata
+	wire  [31:0] mm_interconnect_0_pio_0_s1_readdata;                                             // pio_0:readdata -> mm_interconnect_0:pio_0_s1_readdata
+	wire   [1:0] mm_interconnect_0_pio_0_s1_address;                                              // mm_interconnect_0:pio_0_s1_address -> pio_0:address
 	wire         mm_interconnect_0_esp32_spi_spi_control_port_chipselect;                         // mm_interconnect_0:esp32_spi_spi_control_port_chipselect -> esp32_spi:spi_select
 	wire  [31:0] mm_interconnect_0_esp32_spi_spi_control_port_readdata;                           // esp32_spi:data_to_cpu -> mm_interconnect_0:esp32_spi_spi_control_port_readdata
 	wire   [2:0] mm_interconnect_0_esp32_spi_spi_control_port_address;                            // mm_interconnect_0:esp32_spi_spi_control_port_address -> esp32_spi:mem_addr
@@ -200,7 +203,7 @@ module esp32SPIHardware (
 	wire         irq_mapper_receiver4_irq;                                                        // timer_1:irq -> irq_mapper:receiver4_irq
 	wire         irq_mapper_receiver5_irq;                                                        // timer_2:irq -> irq_mapper:receiver5_irq
 	wire  [31:0] nios2_cpu_irq_irq;                                                               // irq_mapper:sender_irq -> nios2_cpu:irq
-	wire         rst_controller_reset_out_reset;                                                  // rst_controller:reset_out -> [accelerometer:reset, dram_controller:reset_n, esp32_spi:reset_n, irq_mapper:reset, jtag:rst_n, mm_interconnect_0:nios2_cpu_reset_reset_bridge_in_reset_reset, nios2_cpu:reset_n, rst_translator:in_reset, sys_clk:reset_n, timer_1:reset_n, timer_2:reset_n]
+	wire         rst_controller_reset_out_reset;                                                  // rst_controller:reset_out -> [accelerometer:reset, dram_controller:reset_n, esp32_spi:reset_n, irq_mapper:reset, jtag:rst_n, mm_interconnect_0:nios2_cpu_reset_reset_bridge_in_reset_reset, nios2_cpu:reset_n, pio_0:reset_n, rst_translator:in_reset, sys_clk:reset_n, timer_1:reset_n, timer_2:reset_n]
 	wire         rst_controller_reset_out_reset_req;                                              // rst_controller:reset_req -> [nios2_cpu:reset_req, rst_translator:reset_req_in]
 	wire         dram_clks_pll_reset_source_reset;                                                // dram_clks_pll:reset_source_reset -> rst_controller:reset_in0
 	wire         rst_controller_001_reset_out_reset;                                              // rst_controller_001:reset_out -> dram_clks_pll:ref_reset_reset
@@ -360,6 +363,14 @@ module esp32SPIHardware (
 		.E_ci_combo_readra                   (nios2_cpu_custom_instruction_master_readra),              //                          .readra
 		.E_ci_combo_readrb                   (nios2_cpu_custom_instruction_master_readrb),              //                          .readrb
 		.E_ci_combo_writerc                  (nios2_cpu_custom_instruction_master_writerc)              //                          .writerc
+	);
+
+	esp32SPIHardware_pio_0 pio_0 (
+		.clk      (dram_clks_pll_sys_clk_clk),           //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),     //               reset.reset_n
+		.address  (mm_interconnect_0_pio_0_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_pio_0_s1_readdata), //                    .readdata
+		.in_port  (button_export)                        // external_connection.export
 	);
 
 	esp32SPIHardware_sys_clk sys_clk (
@@ -662,6 +673,8 @@ module esp32SPIHardware (
 		.nios2_cpu_debug_mem_slave_byteenable                          (mm_interconnect_0_nios2_cpu_debug_mem_slave_byteenable),                          //                                                  .byteenable
 		.nios2_cpu_debug_mem_slave_waitrequest                         (mm_interconnect_0_nios2_cpu_debug_mem_slave_waitrequest),                         //                                                  .waitrequest
 		.nios2_cpu_debug_mem_slave_debugaccess                         (mm_interconnect_0_nios2_cpu_debug_mem_slave_debugaccess),                         //                                                  .debugaccess
+		.pio_0_s1_address                                              (mm_interconnect_0_pio_0_s1_address),                                              //                                          pio_0_s1.address
+		.pio_0_s1_readdata                                             (mm_interconnect_0_pio_0_s1_readdata),                                             //                                                  .readdata
 		.sys_clk_s1_address                                            (mm_interconnect_0_sys_clk_s1_address),                                            //                                        sys_clk_s1.address
 		.sys_clk_s1_write                                              (mm_interconnect_0_sys_clk_s1_write),                                              //                                                  .write
 		.sys_clk_s1_readdata                                           (mm_interconnect_0_sys_clk_s1_readdata),                                           //                                                  .readdata

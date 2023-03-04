@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_cpu' in SOPC Builder design 'esp32SPIHardware'
  * SOPC Builder design path: ../../esp32SPIHardware.sopcinfo
  *
- * Generated: Sat Mar 04 15:13:18 GMT 2023
+ * Generated: Sat Mar 04 17:15:13 GMT 2023
  */
 
 /*
@@ -176,6 +176,7 @@
 
 #define __ALTERA_AVALON_JTAG_UART
 #define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
+#define __ALTERA_AVALON_PIO
 #define __ALTERA_AVALON_SPI
 #define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_GEN2
@@ -330,6 +331,33 @@
 #define JTAG_TYPE "altera_avalon_jtag_uart"
 #define JTAG_WRITE_DEPTH 64
 #define JTAG_WRITE_THRESHOLD 8
+
+
+/*
+ * pio_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pio_0 altera_avalon_pio
+#define PIO_0_BASE 0x0
+#define PIO_0_BIT_CLEARING_EDGE_REGISTER 0
+#define PIO_0_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define PIO_0_CAPTURE 0
+#define PIO_0_DATA_WIDTH 2
+#define PIO_0_DO_TEST_BENCH_WIRING 0
+#define PIO_0_DRIVEN_SIM_VALUE 0
+#define PIO_0_EDGE_TYPE "NONE"
+#define PIO_0_FREQ 100000000
+#define PIO_0_HAS_IN 1
+#define PIO_0_HAS_OUT 0
+#define PIO_0_HAS_TRI 0
+#define PIO_0_IRQ -1
+#define PIO_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PIO_0_IRQ_TYPE "NONE"
+#define PIO_0_NAME "/dev/pio_0"
+#define PIO_0_RESET_VALUE 0
+#define PIO_0_SPAN 16
+#define PIO_0_TYPE "altera_avalon_pio"
 
 
 /*

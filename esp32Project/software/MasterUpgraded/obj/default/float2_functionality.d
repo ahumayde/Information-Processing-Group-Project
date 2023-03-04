@@ -29,7 +29,6 @@ obj/default/float2_functionality.o: float2_functionality.c \
  ../MasterUpgraded_bsp//newlib/nios2-elf/include/math.h \
  ../MasterUpgraded_bsp//newlib/nios2-elf/include/limits.h \
  ../MasterUpgraded_bsp//newlib/nios2-elf/include/sys/syslimits.h \
- ../MasterUpgraded_bsp/system.h ../MasterUpgraded_bsp/linker.h \
  ../MasterUpgraded_bsp//drivers/inc/altera_avalon_jtag_uart.h \
  ../MasterUpgraded_bsp//HAL/inc/sys/alt_alarm.h \
  ../MasterUpgraded_bsp//HAL/inc/sys/alt_llist.h \
@@ -41,6 +40,7 @@ obj/default/float2_functionality.o: float2_functionality.c \
  ../MasterUpgraded_bsp//HAL/inc/os/alt_flag.h \
  ../MasterUpgraded_bsp//drivers/inc/altera_avalon_jtag_uart_fd.h \
  ../MasterUpgraded_bsp//HAL/inc/sys/alt_dev.h \
+ ../MasterUpgraded_bsp/system.h ../MasterUpgraded_bsp/linker.h \
  ../MasterUpgraded_bsp//HAL/inc/sys/alt_llist.h \
  ../MasterUpgraded_bsp//HAL/inc/priv/alt_dev_llist.h \
  ../MasterUpgraded_bsp//drivers/inc/altera_avalon_spi.h \
@@ -59,7 +59,8 @@ obj/default/float2_functionality.o: float2_functionality.c \
  ../MasterUpgraded_bsp//newlib/nios2-elf/include/sys/unistd.h \
  ../MasterUpgraded_bsp//newlib/nios2-elf/include/stdlib.h \
  ../MasterUpgraded_bsp//newlib/nios2-elf/include/machine/stdlib.h \
- ../MasterUpgraded_bsp//newlib/nios2-elf/include/alloca.h
+ ../MasterUpgraded_bsp//newlib/nios2-elf/include/alloca.h \
+ ../MasterUpgraded_bsp//drivers/inc/altera_avalon_pio_regs.h
 
 ../MasterUpgraded_bsp//newlib/nios2-elf/include/stdio.h:
 
@@ -121,10 +122,6 @@ obj/default/float2_functionality.o: float2_functionality.c \
 
 ../MasterUpgraded_bsp//newlib/nios2-elf/include/sys/syslimits.h:
 
-../MasterUpgraded_bsp/system.h:
-
-../MasterUpgraded_bsp/linker.h:
-
 ../MasterUpgraded_bsp//drivers/inc/altera_avalon_jtag_uart.h:
 
 ../MasterUpgraded_bsp//HAL/inc/sys/alt_alarm.h:
@@ -146,6 +143,10 @@ obj/default/float2_functionality.o: float2_functionality.c \
 ../MasterUpgraded_bsp//drivers/inc/altera_avalon_jtag_uart_fd.h:
 
 ../MasterUpgraded_bsp//HAL/inc/sys/alt_dev.h:
+
+../MasterUpgraded_bsp/system.h:
+
+../MasterUpgraded_bsp/linker.h:
 
 ../MasterUpgraded_bsp//HAL/inc/sys/alt_llist.h:
 
@@ -184,3 +185,5 @@ obj/default/float2_functionality.o: float2_functionality.c \
 ../MasterUpgraded_bsp//newlib/nios2-elf/include/machine/stdlib.h:
 
 ../MasterUpgraded_bsp//newlib/nios2-elf/include/alloca.h:
+
+../MasterUpgraded_bsp//drivers/inc/altera_avalon_pio_regs.h:

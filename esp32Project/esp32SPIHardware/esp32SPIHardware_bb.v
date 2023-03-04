@@ -19,7 +19,8 @@ module esp32SPIHardware (
 	esp32_spi_SCLK,
 	esp32_spi_SS_n,
 	reset_reset_n,
-	sdram_clk_clk);	
+	sdram_clk_clk,
+	button_export);	
 
 	inout		accelerometer_spi_I2C_SDAT;
 	output		accelerometer_spi_I2C_SCLK;
@@ -41,4 +42,5 @@ module esp32SPIHardware (
 	output		esp32_spi_SS_n;
 	input		reset_reset_n;
 	output		sdram_clk_clk;
+	input	[1:0]	button_export;
 endmodule
