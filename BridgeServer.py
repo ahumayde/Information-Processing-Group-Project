@@ -11,6 +11,10 @@ payload = { "right" : 0, "left" : 0, "drop" : 0, "store" : 0}
 
 upper_bound_y =  30
 lower_bound_y = -30
+
+upper_bound_x =  30
+lower_bound_x = -30
+
 hold_time = 500000000 # in nanoseconds (0.5s)
 
 right_held = False
@@ -31,44 +35,63 @@ def connect():
 # Later use x for left and right, with buttons for rotate
 def process(x, y, b):
     # Right
-    if b == 1:
-        r = requests.get(URL+"/right") # Get
-        # payload["right"] = 1         # Post
-        # payload["left"]  = 0         # Post
+    while right_held:
+        # payload["right"] = 0                # Post
+        right_held = x > upper_bound_x        
+        if time.time_ns() - start_right >= hold_time:
+            right_held = False                
+    if x > upper_bound_x:                     
+        start_right = time.time_ns()          
+        right_held = True                      
+        r = requests.get(URL+"/right")        # Get
+        # payload["right"] = 1                # Post
+        # payload["left"]  = 0                # Post
     # Left
-    elif b == 2:
-        r = requests.get(URL+"/left")  # Get
-        # payload["right"] = 0         # Post
-        # payload["left"]  = 1         # Post
+    while left_held:
+        # payload["left"] = 0                 # Post
+        left_held = x < lower_bound_x
+        if time.time_ns() - start_left >= hold_time:
+            left_held = False
+    if x < lower_bound_x:
+        start_left = time.time_ns()
+        left_held = True
+        r = requests.get(URL+"/left")         # Get
+        # payload["right"] = 0                # Post
+        # payload["left"]  = 1                # Post
     # Store
     while store_held:
-        # payload["store"] = 0         # Post
+        # payload["store"] = 0                # Post
         store_held = y < lower_bound_y
         if time.time_ns() - start_store >= hold_time:
             store_held = False
     if y < lower_bound_y:
         start_store = time.time_ns()
         store_held = True
-        r = requests.get(URL+"/store") # Get
-        # payload["drop"]  = 0         # Post
-        # payload["store"] = 1         # Post
-    # Drop
-    while drop_held:
-        # payload["drop"]  = 0         # Post
-        drop_held = y > upper_bound_y 
+        r = requests.get(URL+"/store")        # Get
+        # payload["drop"]  = 0                # Post
+        # payload["store"] = 1                # Post
+    # Drop                                    
+    while drop_held:                          
+        # payload["drop"]  = 0                # Post
+        drop_held = y > upper_bound_y         
         if time.time_ns - start_drop >= hold_time:
-            drop_held = False 
-    if y > upper_bound_y:
-        start_drop = time.time_ns()
-        drop_held = True
-        r = requests.get(URL+"/drop")  # Get
-        print("get sent")              # Get
-        # payload["drop"]  = 1         # Post
-        # payload["store"] = 0         # Post
-        # print("post sent")           # Post
+            drop_held = False                 
+    if y > upper_bound_y:                     
+        start_drop = time.time_ns()           
+        drop_held = True                      
+        r = requests.get(URL+"/drop")         # Get
+        print("get sent")                     # Get
+        # payload["drop"]  = 1                # Post
+        # payload["store"] = 0                # Post
+        # print("post sent")                  # Post
+    # Rotate Right                            
+    if b == 1:                                
+        r = requests.get(URL+"/rotate_right") # Get
+    # Rotate Left
+    if b == 2:
+        r = requests.get(URL+"/rotate_left")  # Get
     # print("x:", x, " y:",y," b:",b)
     # print(payload)
-    # time.sleep(1)
 
 
 def recieve_message(csocket):
