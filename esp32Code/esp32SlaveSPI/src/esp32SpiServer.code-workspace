@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../esp32SpiServer"
+		},
+		{
+			"name": "esp32SlaveSPI",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
