@@ -2,7 +2,6 @@ import pygame
 import keyboard
 from sys import exit
 
-
 def game_loop():
     pygame.init()
     pygame.mixer.init()
@@ -12,8 +11,8 @@ def game_loop():
     lineX = pygame.Surface((400, 2))
     wickerson = pygame.image.load("makeiscrap.png").convert()
     Square = pygame.transform.scale(wickerson, (80, 80))
-    # Square = pygame.Surface((80, 80))
-    # Square.fill('red')
+    #Square = pygame.Surface((80, 80))
+    #Square.fill('red')
     lineY.fill('white')
     lineX.fill('white')
     pygame.display.set_caption("Johnny")
@@ -43,6 +42,12 @@ def game_loop():
             if keyboard.is_pressed(key) and not any(keyboard.is_pressed(k) for k in changes if k != key) and 0 <= x + changex <=320 and 0 <= y + changey <= 560:
                 x += changex
                 y += changey
+        if keyboard.is_pressed("l"):
+            wickerson = pygame.transform.rotate(wickerson, -90)
+            Square = pygame.transform.scale(wickerson, (80, 80))
+        if keyboard.is_pressed("r"):
+            wickerson = pygame.transform.rotate(wickerson, 90)
+            Square = pygame.transform.scale(wickerson, (80, 80))
 
         screen.blit(Square, (x, y))
         for i in range(80, 400, 80):
